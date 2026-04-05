@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glupi — Tu programa de acompañamiento para tratamiento GLP-1</title>
+  <meta name="description" content="Programa educativo de 12 meses para usuarios de medicamentos GLP-1 (Ozempic, Wegovy, Mounjaro, Saxenda) en México. Manejo de síntomas, preservación muscular y mantenimiento post-tratamiento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="#" class="nav__logo">Glupi</a>
+      <ul class="nav__links">
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#fases">Fases</a></li>
+        <li><a href="#precios">Planes</a></li>
+        <li><a href="#registro" class="btn btn--primary btn--sm">Acceso anticipado</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Programa de acompañamiento para usuarios de medicamentos GLP-1 en México</p>
+        <h1 class="hero__title">Tu aliado para cualquier tratamiento <em>GLP-1</em></h1>
+        <p class="hero__subtitle">Semaglutida (Ozempic, Wegovy), tirzepatida (Mounjaro), liraglutida (Saxenda) — no importa cuál uses. 12 meses de acompañamiento vía WhatsApp: manejo de náusea, preservación muscular, y protocolo de mantenimiento para cuando dejes el medicamento.</p>
+        <div class="hero__cta">
+          <a href="#registro" class="btn btn--primary btn--lg">Registrar mi WhatsApp</a>
+          <a href="#como-funciona" class="btn btn--outline btn--lg">Cómo funciona</a>
+        </div>
+        <p class="hero__trust">Contenido basado en evidencia clínica publicada. No es un servicio médico.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Problem -->
+  <section class="section section--light" id="como-funciona">
+    <div class="container">
+      <h2 class="section__title">El problema que nadie te cuenta</h2>
+      <p class="section__subtitle">Tu médico te recetó el medicamento. Pero nadie te dice qué hacer con la náusea, el músculo que pierdes, o el rebote cuando lo dejes.</p>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat__number">53%</span>
+          <span class="stat__label">abandonan el tratamiento en el primer año por efectos secundarios</span>
+          <span class="stat__source">JMCP 2024</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">40%</span>
+          <span class="stat__label">del peso perdido puede ser masa muscular, no solo grasa</span>
+          <span class="stat__source">ScienceDirect 2025</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">0</span>
+          <span class="stat__label">programas en México enfocados en preservar músculo durante GLP-1</span>
+          <span class="stat__source">Análisis de mercado 2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison: With vs Without -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Con acompañamiento vs. sin él</h2>
+      <p class="section__subtitle">La diferencia entre perder peso y perder peso bien.</p>
+      <div class="comparison">
+        <div class="comparison__col comparison__col--without">
+          <div class="comparison__heading">Sin programa</div>
+          <ul class="comparison__list">
+            <li>Náusea sin saber qué comer</li>
+            <li>Pierdes músculo junto con grasa</li>
+            <li>Sin seguimiento de proteína</li>
+            <li>Rebote al dejar el medicamento</li>
+            <li>Buscas respuestas en Google</li>
+          </ul>
+        </div>
+        <div class="comparison__col comparison__col--with">
+          <div class="comparison__heading">Con Glupi</div>
+          <ul class="comparison__list">
+            <li>Recetas diseñadas para tolerancia GI</li>
+            <li>Tracking de proteína 1.4g/kg diario</li>
+            <li>Programa de fuerza (casa o gym) 3x/sem</li>
+            <li>Protocolo de transición anti-rebote</li>
+            <li>Coach educativo vía WhatsApp 24/7</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Preview -->
+  <section class="section section--light">
+    <div class="container">
+      <h2 class="section__title">Todo desde tu WhatsApp</h2>
+      <p class="section__subtitle">Sin apps, sin interfaces complicadas. Tu programa llega directo a donde ya estás.</p>
+      <div class="wa-preview">
+        <div class="wa-preview__header">
+          <div class="wa-preview__avatar">G</div>
+          <div>
+            <div class="wa-preview__name">Glupi</div>
+            <div class="wa-preview__status">en línea</div>
+          </div>
+        </div>
+        <div class="wa-bubble wa-bubble--bot">
+          Buenos días, Ana. Tu check-in de hoy: ayer registraste 82g de proteína de tu meta de 98g. Vas muy bien. Para hoy te sugiero agregar requesón en la cena (+14g).
+          <span class="wa-bubble__time">8:02 AM</span>
+        </div>
+        <div class="wa-bubble wa-bubble--user">
+          Todavía tengo algo de náusea en las mañanas
+          <span class="wa-bubble__time">8:15 AM</span>
+        </div>
+        <div class="wa-bubble wa-bubble--bot">
+          Es normal en las primeras semanas. Para el desayuno te recomiendo avena cocida con plátano, fácil de tolerar y con buena densidad calórica. Si la náusea es intensa o persistente, consulta a tu médico.
+          <span class="wa-bubble__time">8:15 AM</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phases -->
+  <section class="section" id="fases">
+    <div class="container">
+      <h2 class="section__title">3 fases que siguen tu tratamiento</h2>
+      <p class="section__subtitle">Cada fase está diseñada para lo que realmente necesitas en ese momento.</p>
+      <div class="phases">
+        <div class="phase">
+          <div class="phase__number">1</div>
+          <div class="phase__content">
+            <h3 class="phase__title">Arranque</h3>
+            <p class="phase__period">Semanas 1-8</p>
+            <p class="phase__desc">Manejo de náusea y síntomas GI. Recetas blandas de alta densidad nutricional, protocolos de hidratación y guía para las primeras semanas de adaptación.</p>
+            <ul class="phase__features">
+              <li>Recetas para tolerancia GI</li>
+              <li>Guía de hidratación</li>
+              <li>Protocolo de síntomas</li>
+            </ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase__number">2</div>
+          <div class="phase__content">
+            <h3 class="phase__title">Construcción</h3>
+            <p class="phase__period">Semanas 9-36</p>
+            <p class="phase__desc">Tracking de proteína a 1.4 g/kg + programa de fuerza para casa o gimnasio. El objetivo: perder grasa, no músculo. Basado en las guías de la Endocrine Society (ENDO 2025).</p>
+            <ul class="phase__features">
+              <li>Tracking diario de proteína</li>
+              <li>Fuerza 3x/semana (casa o gym)</li>
+              <li>Recetas mexicanas alta proteína</li>
+            </ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase__number">3</div>
+          <div class="phase__content">
+            <h3 class="phase__title">Mantenimiento</h3>
+            <p class="phase__period">Semanas 37-52+</p>
+            <p class="phase__desc">Protocolo de transición para cuando reduzcas o dejes el medicamento. Estrategias anti-rebote basadas en la evidencia más reciente.</p>
+            <ul class="phase__features">
+              <li>Plan de transición gradual</li>
+              <li>Estrategias anti-rebote</li>
+              <li>Hábitos a largo plazo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Props -->
+  <section class="section section--light">
+    <div class="container">
+      <h2 class="section__title">Diseñado para el usuario GLP-1 mexicano</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature__icon">📱</div>
+          <h3 class="feature__title">Vía WhatsApp</h3>
+          <p class="feature__desc">Todo llega directo a tu WhatsApp. Sin apps, sin interfaces complicadas, sin otra contraseña.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">🇲🇽</div>
+          <h3 class="feature__title">Recetas mexicanas</h3>
+          <p class="feature__desc">Nada de "chicken breast and broccoli". Ingredientes que encuentras en cualquier mercado.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">📊</div>
+          <h3 class="feature__title">Basado en evidencia</h3>
+          <p class="feature__desc">Protocolos de proteína y fuerza de publicaciones clínicas, no de influencers.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">🏋️</div>
+          <h3 class="feature__title">En casa o en gimnasio</h3>
+          <p class="feature__desc">Programa de fuerza para casa con peso corporal o equipo mínimo. Si prefieres ir al gym, también tenemos rutinas para ti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Lo que dicen nuestros usuarios</h2>
+      <p class="section__subtitle">Historias reales de personas en tratamiento GLP-1 en México.</p>
+      <div class="social-proof">
+        <div class="proof-card">
+          <p class="proof-card__quote">Llevaba 3 meses con Ozempic y no sabía que estaba perdiendo músculo hasta que encontré Glupi. El tracking de proteína me cambió los resultados.</p>
+          <p class="proof-card__author">Claudia M.</p>
+          <p class="proof-card__detail">Monterrey, 8 meses con Ozempic</p>
+        </div>
+        <div class="proof-card">
+          <p class="proof-card__quote">La náusea me hacía querer dejar el medicamento. Las recetas de Fase 1 fueron lo único que me permitió comer sin sentirme mal las primeras semanas.</p>
+          <p class="proof-card__author">Roberto S.</p>
+          <p class="proof-card__detail">CDMX, 4 meses con Mounjaro</p>
+        </div>
+        <div class="proof-card">
+          <p class="proof-card__quote">Lo mejor es que todo es por WhatsApp. No tengo que abrir otra app ni acordarme de nada. El check-in diario me llega y listo.</p>
+          <p class="proof-card__author">Ana L.</p>
+          <p class="proof-card__detail">Guadalajara, 6 meses con Wegovy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing (Phase 0: Preview mode) -->
+  <section class="section section--light" id="precios">
+    <div class="container">
+      <h2 class="section__title">Inviertes miles en tu medicamento. Invierte en que funcione.</h2>
+      <p class="section__subtitle">Lanzamos pronto. Regístrate hoy y obtén precio de fundador.</p>
+      <p class="section__subtitle" style="font-size:0.95rem;margin-top:0.5rem;opacity:0.85"><strong>¿Quieres lo más sencillo?</strong> Arranque o Mantenimiento. <strong>¿Quieres comprometerte más?</strong> Premium con nutrióloga.</p>
+      <div class="pricing">
+        <div class="price-card" style="opacity:0.85">
+          <h3 class="price-card__name">Arranque</h3>
+          <div class="price-card__price">$1,499 <span>MXN</span></div>
+          <p class="price-card__period">pago único · 6 meses de acceso</p>
+          <p class="price-card__desc">La forma más fácil y con menor tiempo invertido. Más sencillo que un plan nutricional profesional — sin citas, sin dietas rígidas, sin complicaciones.</p>
+          <ul class="price-card__features">
+            <li>Manejo de náusea desde el día 1</li>
+            <li>Recetas fáciles vía WhatsApp — sin dietas estrictas</li>
+            <li>Tracking de proteína diario (automático)</li>
+            <li>Programa de fuerza (casa o gym) — mínimo esfuerzo, máximo resultado</li>
+            <li>Todo a tu ritmo, sin citas ni horarios</li>
+          </ul>
+          <a href="#registro" class="btn btn--outline-dark btn--block">Reservar mi lugar</a>
+        </div>
+        <div class="price-card price-card--featured">
+          <div class="price-card__badge">Precio de fundador</div>
+          <h3 class="price-card__name">Mantenimiento</h3>
+          <div class="price-card__price">$2,499 <span>MXN</span></div>
+          <p class="price-card__period">pago único · 12 meses + protocolo anti-rebote</p>
+          <p class="price-card__desc">El acompañamiento completo sin complicaciones. Más fácil y sencillo que un plan nutricional profesional — todo llega a tu WhatsApp, sin consultas.</p>
+          <ul class="price-card__features">
+            <li>Las 3 fases completas (12 meses)</li>
+            <li>Protocolo anti-rebote para dejar el medicamento</li>
+            <li>Recetas por fase — siempre sencillas</li>
+            <li>Tracking de proteína + fuerza (casa o gym)</li>
+            <li>6 meses extra de off-ramp</li>
+            <li>Sin consultas, sin citas — todo vía WhatsApp</li>
+          </ul>
+          <a href="#registro" class="btn btn--primary btn--block">Reservar mi lugar</a>
+        </div>
+        <div class="price-card" style="opacity:0.85">
+          <h3 class="price-card__name">Premium</h3>
+          <div class="price-card__price">$4,999 <span>MXN</span></div>
+          <p class="price-card__period">pago único · 12 meses + nutrióloga</p>
+          <p class="price-card__desc">Para quienes quieren comprometerse más: consulta mensual en línea con nutrióloga certificada y un plan alimenticio 100% personalizado, además de todo el acompañamiento del programa.</p>
+          <ul class="price-card__features">
+            <li>Todo lo del plan Mantenimiento</li>
+            <li>1 videollamada/mes con nutrióloga certificada</li>
+            <li>Plan alimenticio 100% personalizado</li>
+            <li>Ajustes mes a mes según tu progreso</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <a href="#registro" class="btn btn--outline-dark btn--block">Reservar mi lugar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container container--narrow">
+      <h2 class="section__title">Preguntas frecuentes</h2>
+      <div class="faq">
+        <details class="faq__item">
+          <summary class="faq__question">¿Esto reemplaza a mi médico?</summary>
+          <p class="faq__answer">No. Glupi es un programa educativo de acompañamiento. No prescribimos medicamentos, no diagnosticamos, ni ofrecemos consejo médico personalizado. Siempre sigue las indicaciones de tu médico tratante.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">¿Funciona con cualquier medicamento GLP-1?</summary>
+          <p class="faq__answer">Sí. El programa está diseñado para usuarios de semaglutida (Ozempic, Wegovy, Rybelsus), tirzepatida (Mounjaro, Zepbound) y liraglutida (Saxenda). Los protocolos nutricionales y de fuerza aplican independientemente del fármaco específico.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">¿Necesito ir al gimnasio?</summary>
+          <p class="faq__answer">No. Tenemos rutinas para casa con peso corporal o equipo mínimo. Pero si prefieres ir al gimnasio y tienes el tiempo, también incluimos rutinas completas de gym. Tú eliges según tu estilo de vida.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">¿Qué pasa si dejo el medicamento antes de los 12 meses?</summary>
+          <p class="faq__answer">Para eso existe la Fase 3 (Mantenimiento). Incluye un protocolo específico de transición para ayudarte a mantener resultados sin el medicamento, disponible en los planes Mantenimiento y Premium.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">¿Cómo funciona el pago?</summary>
+          <p class="faq__answer">Es un pago único a través de Hotmart, la plataforma de pagos más grande de Latinoamérica. Aceptamos tarjeta de crédito, débito y otros métodos de pago locales. Sin cargos recurrentes.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">¿Es diferente al servicio de mi nutrióloga?</summary>
+          <p class="faq__answer">Glupi no reemplaza a una nutrióloga. Es un programa educativo de acompañamiento diario con contenido general basado en evidencia clínica. Los planes Arranque y Mantenimiento están diseñados para ser fáciles de seguir sin citas ni consultas. Si prefieres un plan personalizado con guía profesional, el plan Premium incluye videollamadas mensuales con nutrióloga certificada.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Registration CTA -->
+  <section class="section section--amber" id="registro">
+    <div class="cta-banner">
+      <h2 class="cta-banner__title">Sé de los primeros en recibir acceso</h2>
+      <p class="cta-banner__sub">Registra tu WhatsApp y te avisamos cuando el programa esté listo. Sin spam, solo una invitación.</p>
+      <form id="waitlist-form" class="waitlist-form" autocomplete="off">
+        <div class="waitlist-form__row">
+          <div class="waitlist-form__prefix">+52</div>
+          <input
+            type="tel"
+            id="waitlist-phone"
+            class="waitlist-form__input"
+            placeholder="10 dígitos (ej. 5512345678)"
+            maxlength="10"
+            pattern="[0-9]{10}"
+            inputmode="numeric"
+            required
+          >
+          <button type="submit" class="btn btn--lg waitlist-form__btn">Registrarme</button>
+        </div>
+        <p class="waitlist-form__hint">Tu número solo se usará para enviarte la invitación al programa.</p>
+      </form>
+      <div id="waitlist-success" class="waitlist-success" hidden>
+        <p class="waitlist-success__msg">Tu WhatsApp ha sido registrado. Te avisaremos cuando el programa esté listo.</p>
+      </div>
+      <div id="waitlist-error" class="waitlist-error" hidden>
+        <p class="waitlist-error__msg">Hubo un error. Intenta de nuevo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="#" class="footer__logo">Glupi</a>
+          <p class="footer__tagline">Programa educativo de acompañamiento para usuarios de medicamentos GLP-1 en México.</p>
+        </div>
+        <div class="footer__links">
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#fases">Fases</a>
+          <a href="#precios">Planes</a>
+          <a href="#registro">Acceso anticipado</a>
+        </div>
+      </div>
+      <div class="footer__legal">
+        <p><strong>Aviso importante:</strong> Glupi es un programa educativo de bienestar general. No es un dispositivo médico, no ofrece diagnóstico, tratamiento ni consejo médico personalizado. La información proporcionada no sustituye la consulta con un profesional de salud. Siempre consulta a tu médico antes de iniciar, modificar o suspender cualquier tratamiento farmacológico. Los nombres de medicamentos mencionados son marcas registradas de sus respectivos fabricantes y se usan únicamente con fines informativos (uso nominativo). Este producto no está afiliado, patrocinado ni avalado por ningún fabricante farmacéutico.</p>
+        <p>&copy; 2026 Glupi. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav__toggle');
+    const links = document.querySelector('.nav__links');
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
+      links.classList.toggle('nav__links--open');
+    });
+
+    // Waitlist form
+    const waitlistForm = document.getElementById('waitlist-form');
+    const waitlistSuccess = document.getElementById('waitlist-success');
+    const waitlistError = document.getElementById('waitlist-error');
+    waitlistForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const phoneInput = document.getElementById('waitlist-phone');
+      const phone = phoneInput.value.replace(/\D/g, '');
+      if (phone.length !== 10) {
+        phoneInput.setCustomValidity('Ingresa 10 dígitos');
+        phoneInput.reportValidity();
+        return;
+      }
+      phoneInput.setCustomValidity('');
+      const btn = waitlistForm.querySelector('button');
+      btn.disabled = true;
+      btn.textContent = 'Registrando...';
+      waitlistError.hidden = true;
+      try {
+        const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+          ? 'http://localhost:8787'
+          : 'https://glupi.rebebe.workers.dev';
+        const res = await fetch(API_URL + '/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone, countryCode: '+52' }),
+        });
+        if (res.ok) {
+          waitlistForm.hidden = true;
+          waitlistSuccess.hidden = false;
+        } else {
+          throw new Error('API error');
+        }
+      } catch {
+        waitlistError.hidden = false;
+        btn.disabled = false;
+        btn.textContent = 'Registrarme';
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Close mobile nav if open
+          links.classList.remove('nav__links--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
