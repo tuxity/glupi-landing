@@ -236,51 +236,147 @@
     <div class="container">
       <h2 class="section__title">Inviertes miles en tu medicamento. Invierte en que funcione.</h2>
       <p class="section__subtitle">Lanzamos pronto. Regístrate hoy y obtén precio de fundador.</p>
-      <p class="section__subtitle" style="font-size:0.95rem;margin-top:0.5rem;opacity:0.85"><strong>¿Quieres lo más sencillo?</strong> Arranque o Mantenimiento. <strong>¿Quieres comprometerte más?</strong> Premium con nutrióloga.</p>
+
+      <!-- Package cards -->
       <div class="pricing">
-        <div class="price-card" style="opacity:0.85">
+        <div class="price-card">
+          <div class="price-card__tier">Básico</div>
           <h3 class="price-card__name">Arranque</h3>
           <div class="price-card__price">$1,499 <span>MXN</span></div>
-          <p class="price-card__period">pago único · 6 meses de acceso</p>
-          <p class="price-card__desc">La forma más fácil y con menor tiempo invertido. Más sencillo que un plan nutricional profesional — sin citas, sin dietas rígidas, sin complicaciones.</p>
-          <ul class="price-card__features">
-            <li>Manejo de náusea desde el día 1</li>
-            <li>Recetas fáciles vía WhatsApp — sin dietas estrictas</li>
-            <li>Tracking de proteína diario (automático)</li>
-            <li>Programa de fuerza (casa o gym) — mínimo esfuerzo, máximo resultado</li>
-            <li>Todo a tu ritmo, sin citas ni horarios</li>
-          </ul>
+          <p class="price-card__period">pago único · 6 meses</p>
+          <p class="price-card__desc">Lo esencial para empezar bien tu tratamiento GLP-1.</p>
           <a href="#registro" class="btn btn--outline-dark btn--block">Reservar mi lugar</a>
         </div>
         <div class="price-card price-card--featured">
           <div class="price-card__badge">Precio de fundador</div>
+          <div class="price-card__tier">Más popular</div>
           <h3 class="price-card__name">Mantenimiento</h3>
           <div class="price-card__price">$2,499 <span>MXN</span></div>
-          <p class="price-card__period">pago único · 12 meses + protocolo anti-rebote</p>
-          <p class="price-card__desc">El acompañamiento completo sin complicaciones. Más fácil y sencillo que un plan nutricional profesional — todo llega a tu WhatsApp, sin consultas.</p>
-          <ul class="price-card__features">
-            <li>Las 3 fases completas (12 meses)</li>
-            <li>Protocolo anti-rebote para dejar el medicamento</li>
-            <li>Recetas por fase — siempre sencillas</li>
-            <li>Tracking de proteína + fuerza (casa o gym)</li>
-            <li>6 meses extra de off-ramp</li>
-            <li>Sin consultas, sin citas — todo vía WhatsApp</li>
-          </ul>
+          <p class="price-card__period">pago único · 12 meses</p>
+          <p class="price-card__desc">Acompañamiento completo con protocolo anti-rebote. Todo vía WhatsApp.</p>
           <a href="#registro" class="btn btn--primary btn--block">Reservar mi lugar</a>
         </div>
-        <div class="price-card" style="opacity:0.85">
+        <div class="price-card price-card--premium">
+          <div class="price-card__tier">Personalizado</div>
           <h3 class="price-card__name">Premium</h3>
           <div class="price-card__price">$4,999 <span>MXN</span></div>
-          <p class="price-card__period">pago único · 12 meses + nutrióloga</p>
-          <p class="price-card__desc">Para quienes quieren comprometerse más: consulta mensual en línea con nutrióloga certificada y un plan alimenticio 100% personalizado, además de todo el acompañamiento del programa.</p>
-          <ul class="price-card__features">
-            <li>Todo lo del plan Mantenimiento</li>
-            <li>1 videollamada/mes con nutrióloga certificada</li>
-            <li>Plan alimenticio 100% personalizado</li>
-            <li>Ajustes mes a mes según tu progreso</li>
-            <li>Soporte prioritario</li>
-          </ul>
+          <p class="price-card__period">pago único · 12 meses</p>
+          <p class="price-card__desc">Todo lo anterior + nutrióloga certificada con plan 100% personalizado.</p>
           <a href="#registro" class="btn btn--outline-dark btn--block">Reservar mi lugar</a>
+        </div>
+      </div>
+
+      <!-- Feature comparison grid -->
+      <div class="compare">
+        <div class="compare__scroll">
+          <table class="compare__table">
+            <thead>
+              <tr>
+                <th class="compare__feature-col">Qué incluye</th>
+                <th>Arranque</th>
+                <th class="compare__col-highlight">Mantenimiento</th>
+                <th>Premium</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="compare__group">
+                <td colspan="4">Nutrición y recetas</td>
+              </tr>
+              <tr>
+                <td>Manejo de náusea (Fase 1)</td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__check" aria-label="Incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr>
+                <td>Recetas mexicanas vía WhatsApp</td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__check" aria-label="Incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr>
+                <td>Recetas por fase (adaptadas a tu etapa)</td>
+                <td><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__check" aria-label="Incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr>
+                <td>Plan alimenticio 100% personalizado</td>
+                <td><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr class="compare__group">
+                <td colspan="4">Ejercicio y cuerpo</td>
+              </tr>
+              <tr>
+                <td>Tracking de proteína diario</td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__check" aria-label="Incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr>
+                <td>Programa de fuerza (casa o gym)</td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__check" aria-label="Incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr class="compare__group">
+                <td colspan="4">Duración y fases</td>
+              </tr>
+              <tr>
+                <td>Fase 1 — Arranque (sem. 1-8)</td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__check" aria-label="Incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr>
+                <td>Fase 2 — Construcción (sem. 9-36)</td>
+                <td><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__check" aria-label="Incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr>
+                <td>Fase 3 — Mantenimiento + anti-rebote</td>
+                <td><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__check" aria-label="Incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr>
+                <td>6 meses extra de off-ramp</td>
+                <td><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__check" aria-label="Incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr class="compare__group">
+                <td colspan="4">Soporte profesional</td>
+              </tr>
+              <tr>
+                <td>Coach educativo vía WhatsApp</td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__check" aria-label="Incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr>
+                <td>Videollamada mensual con nutrióloga</td>
+                <td><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr>
+                <td>Ajustes mensuales según tu progreso</td>
+                <td><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+              <tr>
+                <td>Soporte prioritario</td>
+                <td><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td class="compare__col-highlight"><span class="compare__dash" aria-label="No incluido"></span></td>
+                <td><span class="compare__check" aria-label="Incluido"></span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -326,14 +422,33 @@
       <p class="cta-banner__sub">Registra tu WhatsApp y te avisamos cuando el programa esté listo. Sin spam, solo una invitación.</p>
       <form id="waitlist-form" class="waitlist-form" autocomplete="off">
         <div class="waitlist-form__row">
-          <div class="waitlist-form__prefix">+52</div>
+          <select id="country-code" class="waitlist-form__country" aria-label="Código de país">
+            <option value="+52" data-digits="10" selected>🇲🇽 México +52</option>
+            <option value="+1" data-digits="10">🇺🇸 EE.UU. +1</option>
+            <option value="+1" data-digits="10">🇨🇦 Canadá +1</option>
+            <option value="+54" data-digits="10">🇦🇷 Argentina +54</option>
+            <option value="+56" data-digits="9">🇨🇱 Chile +56</option>
+            <option value="+57" data-digits="10">🇨🇴 Colombia +57</option>
+            <option value="+506" data-digits="8">🇨🇷 Costa Rica +506</option>
+            <option value="+593" data-digits="9">🇪🇨 Ecuador +593</option>
+            <option value="+503" data-digits="8">🇸🇻 El Salvador +503</option>
+            <option value="+34" data-digits="9">🇪🇸 España +34</option>
+            <option value="+502" data-digits="8">🇬🇹 Guatemala +502</option>
+            <option value="+504" data-digits="8">🇭🇳 Honduras +504</option>
+            <option value="+505" data-digits="8">🇳🇮 Nicaragua +505</option>
+            <option value="+507" data-digits="8">🇵🇦 Panamá +507</option>
+            <option value="+51" data-digits="9">🇵🇪 Perú +51</option>
+            <option value="+1" data-digits="10">🇵🇷 Puerto Rico +1</option>
+            <option value="+1" data-digits="10">🇩🇴 Rep. Dominicana +1</option>
+            <option value="+598" data-digits="8">🇺🇾 Uruguay +598</option>
+            <option value="+58" data-digits="10">🇻🇪 Venezuela +58</option>
+          </select>
           <input
             type="tel"
             id="waitlist-phone"
             class="waitlist-form__input"
             placeholder="10 dígitos (ej. 5512345678)"
             maxlength="10"
-            pattern="[0-9]{10}"
             inputmode="numeric"
             required
           >
@@ -382,20 +497,32 @@
       links.classList.toggle('nav__links--open');
     });
 
+    // Country code picker — update placeholder on change
+    const countrySelect = document.getElementById('country-code');
+    const phoneInput = document.getElementById('waitlist-phone');
+    function updatePhonePlaceholder() {
+      const opt = countrySelect.selectedOptions[0];
+      const digits = opt.dataset.digits || '10';
+      phoneInput.maxLength = digits;
+      phoneInput.placeholder = digits + ' dígitos (ej. ' + '5'.repeat(Math.min(4, digits)) + '1'.repeat(Math.max(0, digits - 4)) + ')';
+    }
+    countrySelect.addEventListener('change', updatePhonePlaceholder);
+
     // Waitlist form
     const waitlistForm = document.getElementById('waitlist-form');
     const waitlistSuccess = document.getElementById('waitlist-success');
     const waitlistError = document.getElementById('waitlist-error');
     waitlistForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const phoneInput = document.getElementById('waitlist-phone');
       const phone = phoneInput.value.replace(/\D/g, '');
-      if (phone.length !== 10) {
-        phoneInput.setCustomValidity('Ingresa 10 dígitos');
+      const expectedDigits = parseInt(countrySelect.selectedOptions[0].dataset.digits || '10', 10);
+      if (phone.length !== expectedDigits) {
+        phoneInput.setCustomValidity('Ingresa ' + expectedDigits + ' dígitos');
         phoneInput.reportValidity();
         return;
       }
       phoneInput.setCustomValidity('');
+      const countryCode = countrySelect.value;
       const btn = waitlistForm.querySelector('button');
       btn.disabled = true;
       btn.textContent = 'Registrando...';
@@ -407,7 +534,7 @@
         const res = await fetch(API_URL + '/api/waitlist', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ phone, countryCode: '+52' }),
+          body: JSON.stringify({ phone, countryCode }),
         });
         if (res.ok) {
           waitlistForm.hidden = true;
