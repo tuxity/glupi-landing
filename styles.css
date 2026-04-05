@@ -186,7 +186,7 @@ a { color: var(--color-amber); text-decoration: none; }
   border-radius: 50%;
 }
 .hero__inner {
-  max-width: 720px;
+  max-width: 860px;
   position: relative;
   z-index: 1;
 }
@@ -221,7 +221,7 @@ a { color: var(--color-amber); text-decoration: none; }
   color: rgba(255,255,255,0.7);
   line-height: 1.7;
   margin-bottom: 2rem;
-  max-width: 560px;
+  max-width: 680px;
 }
 .hero__cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 .hero__trust {
