@@ -1,7 +1,7 @@
 # Semana 1 — Contenido de Lanzamiento
 
 **Objetivo:** Awareness + primeros registros de WhatsApp
-**Marca:** Glupi
+**Marca:** GLuPI
 **Tono:** Informativo, directo, mexicano (tú, no usted), sin ser médico
 **Disclaimer en bio:** "Programa educativo. No es consejo médico."
 
@@ -26,7 +26,7 @@
 >
 > TEXTO FINAL: "glupi.com — Acompañamiento GLP-1 vía WhatsApp"
 
-**Hashtags:** #GLP1 #Ozempic #Mounjaro #Saxenda #BajarDePeso #PérdidaDeMúsculo #NutriciónMéxico #Glupi
+**Hashtags:** #GLP1 #Ozempic #Mounjaro #Saxenda #BajarDePeso #PérdidaDeMúsculo #NutriciónMéxico #GLuPI
 **CTA:** Link en bio → landing page
 
 ---
@@ -38,7 +38,7 @@
 **Slide 1 (portada):**
 "Lo que nadie te dice sobre tu tratamiento GLP-1"
 Subtítulo: "5 datos que tu médico probablemente no mencionó"
-Branding: Glupi logo
+Branding: GLuPI logo
 
 **Slide 2:**
 "40% del peso perdido puede ser músculo, no solo grasa"
@@ -63,7 +63,7 @@ CTA: "Link en bio"
 **Caption:**
 "Empezaste tu tratamiento GLP-1 y la báscula baja. Pero hay cosas que nadie te dice. Guarda este post y compártelo con alguien que esté tomando Ozempic, Mounjaro o Saxenda.
 
-#GLP1 #Ozempic #Mounjaro #Saxenda #BajarDePeso #NutriciónMéxico #Glupi"
+#GLP1 #Ozempic #Mounjaro #Saxenda #BajarDePeso #NutriciónMéxico #GLuPI"
 
 ---
 
@@ -97,7 +97,7 @@ Compartir link en Stories de IG
 >
 > "Más recetas para cada fase de tu tratamiento → link en bio"
 
-**Hashtags:** #RecetaFácil #GLP1 #Ozempic #Náusea #RecetaSaludable #Glupi
+**Hashtags:** #RecetaFácil #GLP1 #Ozempic #Náusea #RecetaSaludable #GLuPI
 
 ---
 
@@ -133,7 +133,7 @@ Siguiente story: "Si contestaste sí → tenemos recetas diseñadas para los dí
 >
 > "Más info → link en bio"
 
-**Hashtags:** #GLP1 #PérdidaDeMúsculo #Ozempic #Mounjaro #FuerzaEnCasa #Glupi
+**Hashtags:** #GLP1 #PérdidaDeMúsculo #Ozempic #Mounjaro #FuerzaEnCasa #GLuPI
 
 ---
 
@@ -157,7 +157,7 @@ La regla: 1.4g de proteína por kilo de peso al día.
 
 Guarda este post para tu próxima ida al mercado.
 
-#Proteína #GLP1 #AlimentosSaludables #MercadoMexicano #Ozempic #Glupi"
+#Proteína #GLP1 #AlimentosSaludables #MercadoMexicano #Ozempic #GLuPI"
 
 ---
 
@@ -185,7 +185,7 @@ Archivo: `blog/perdida-musculo-glp1.html`
 >
 > "No es culpa de tu nutrióloga — estos protocolos son muy nuevos. Pero tú necesitas saberlo."
 
-**Hashtags:** #GLP1 #Nutrióloga #Mito #Ozempic #ProteínaAlta #Glupi
+**Hashtags:** #GLP1 #Nutrióloga #Mito #Ozempic #ProteínaAlta #GLuPI
 
 ---
 
@@ -218,7 +218,7 @@ Responder 3-5 preguntas en Stories con texto educativo. Cada respuesta termina c
 >
 > "Próxima semana: ejercicio #2. Sígueme para no perdértelo."
 
-**Hashtags:** #EjercicioEnCasa #GLP1 #Sentadilla #Fuerza #Ozempic #Glupi
+**Hashtags:** #EjercicioEnCasa #GLP1 #Sentadilla #Fuerza #Ozempic #GLuPI
 
 ---
 
@@ -236,7 +236,7 @@ Ingredientes:
 
 Guarda para tus días difíciles.
 
-#RecetaGLP1 #Náusea #Ozempic #Mounjaro #Glupi"
+#RecetaGLP1 #Náusea #Ozempic #Mounjaro #GLuPI"
 
 ---
 
