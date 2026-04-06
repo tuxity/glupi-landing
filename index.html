@@ -493,7 +493,7 @@
   <section class="section section--amber" id="registro">
     <div class="cta-banner">
       <h2 class="cta-banner__title">Empieza hoy tu programa de acompañamiento</h2>
-      <p class="cta-banner__sub">Elige tu plan, paga con Mercado Pago, y recibe tu código de acceso para comenzar vía WhatsApp.</p>
+      <p class="cta-banner__sub">Elige tu plan, paga con Mercado Pago, y comienza tu programa vía WhatsApp — te reconocemos automáticamente.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem">
         <!-- TEST PRICES: revert to 1499/2499/4999 after testing -->
         <button class="btn btn--outline btn--lg js-checkout" data-title="Glupi — Plan Arranque (6 meses)" data-price="10">Arranque · $1,499</button>
@@ -526,6 +526,21 @@
     </div>
   </footer>
 
+  <!-- Phone capture modal -->
+  <div id="phoneModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;padding:1rem;">
+    <div style="background:#fff;border-radius:16px;padding:2rem;max-width:400px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.15);">
+      <h3 style="margin:0 0 .25rem;font-size:1.25rem;" id="modalTitle"></h3>
+      <p style="color:#666;font-size:.9rem;margin-bottom:1.25rem;line-height:1.5;">Ingresa tu número de WhatsApp para que te reconozcamos automáticamente después de pagar — sin códigos ni pasos extra.</p>
+      <form id="phoneForm">
+        <input type="tel" id="modalPhone" placeholder="Tu número (10 dígitos)" pattern="[0-9]{10}" maxlength="10" required
+          style="width:100%;padding:.75rem 1rem;border:2px solid #e5e7eb;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+        <p id="phoneError" style="color:#dc2626;font-size:.85rem;min-height:1.25rem;margin:.5rem 0;"></p>
+        <button type="submit" id="phoneSubmitBtn" class="btn btn--primary" style="width:100%;margin-top:.25rem;">Continuar al pago</button>
+        <button type="button" id="phoneCancelBtn" style="margin-top:.75rem;background:none;border:none;color:#888;cursor:pointer;font-size:.9rem;">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
   <script>
     // Mobile nav toggle
     const toggle = document.querySelector('.nav__toggle');
@@ -536,46 +551,90 @@
       links.classList.toggle('nav__links--open');
     });
 
-    // Mercado Pago checkout
+    // Mercado Pago checkout with phone capture
     const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
       ? 'http://localhost:8787'
       : 'https://glupi.com.mx';
 
+    let pendingTitle = '';
+    let pendingPrice = 0;
+    let pendingBtn = null;
+    let pendingOriginalText = '';
+
+    const phoneModal = document.getElementById('phoneModal');
+    const phoneForm = document.getElementById('phoneForm');
+    const modalPhone = document.getElementById('modalPhone');
+    const phoneError = document.getElementById('phoneError');
+    const phoneSubmitBtn = document.getElementById('phoneSubmitBtn');
+
+    function openPhoneModal(title, price, btn) {
+      pendingTitle = title;
+      pendingPrice = price;
+      pendingBtn = btn;
+      pendingOriginalText = btn.textContent;
+      document.getElementById('modalTitle').textContent = title.replace('Glupi — ', '');
+      modalPhone.value = '';
+      phoneError.textContent = '';
+      phoneSubmitBtn.disabled = false;
+      phoneSubmitBtn.textContent = 'Continuar al pago';
+      phoneModal.style.display = 'flex';
+      modalPhone.focus();
+    }
+
+    function closePhoneModal() {
+      phoneModal.style.display = 'none';
+      if (pendingBtn) {
+        pendingBtn.disabled = false;
+        pendingBtn.textContent = pendingOriginalText;
+      }
+    }
+
+    document.getElementById('phoneCancelBtn').addEventListener('click', closePhoneModal);
+    phoneModal.addEventListener('click', (e) => {
+      if (e.target === phoneModal) closePhoneModal();
+    });
+
+    phoneForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const phone = modalPhone.value.replace(/\D/g, '');
+      if (phone.length !== 10) {
+        phoneError.textContent = 'Por favor ingresa un número de 10 dígitos.';
+        return;
+      }
+      phoneSubmitBtn.disabled = true;
+      phoneSubmitBtn.textContent = 'Procesando...';
+      phoneError.textContent = '';
+      try {
+        const res = await fetch(API_URL + '/api/checkout/create', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title: pendingTitle, unit_price: pendingPrice, quantity: 1, phone: phone }),
+        });
+        if (!res.ok) throw new Error('API error');
+        const data = await res.json();
+        const checkoutUrl = data.sandbox ? data.sandbox_init_point : data.init_point;
+        if (data.sandbox) {
+          const proceed = confirm(
+            '⚠️ Modo sandbox activo.\n\n' +
+            'Para completar la compra en sandbox, necesitas usar una cuenta de comprador de prueba de Mercado Pago ' +
+            '(no tu cuenta real de Mercado Libre).\n\n' +
+            '¿Continuar al checkout sandbox?'
+          );
+          if (!proceed) { closePhoneModal(); return; }
+        }
+        window.location.href = checkoutUrl;
+      } catch {
+        phoneError.textContent = 'Error al crear el pago. Intenta de nuevo.';
+        phoneSubmitBtn.disabled = false;
+        phoneSubmitBtn.textContent = 'Continuar al pago';
+      }
+    });
+
     document.querySelectorAll('.js-checkout').forEach(btn => {
-      btn.addEventListener('click', async () => {
+      btn.addEventListener('click', () => {
         const title = btn.dataset.title;
         const price = parseInt(btn.dataset.price, 10);
-        const originalText = btn.textContent;
-        btn.disabled = true;
-        btn.textContent = 'Procesando...';
-        try {
-          const res = await fetch(API_URL + '/api/checkout/create', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title: title, unit_price: price, quantity: 1 }),
-          });
-          if (!res.ok) throw new Error('API error');
-          const data = await res.json();
-          // Use sandbox_init_point when server is in sandbox mode, init_point for production
-          const checkoutUrl = data.sandbox
-            ? data.sandbox_init_point
-            : data.init_point;
-          if (data.sandbox) {
-            const proceed = confirm(
-              '⚠️ Modo sandbox activo.\n\n' +
-              'Para completar la compra en sandbox, necesitas usar una cuenta de comprador de prueba de Mercado Pago ' +
-              '(no tu cuenta real de Mercado Libre).\n\n' +
-              'Consulta la documentación de test en el issue de Paperclip para obtener credenciales de prueba.\n\n' +
-              '¿Continuar al checkout sandbox?'
-            );
-            if (!proceed) { btn.disabled = false; btn.textContent = originalText; return; }
-          }
-          window.location.href = checkoutUrl;
-        } catch {
-          alert('Error al crear el pago. Intenta de nuevo.');
-          btn.disabled = false;
-          btn.textContent = originalText;
-        }
+        openPhoneModal(title, price, btn);
       });
     });
 
