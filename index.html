@@ -481,8 +481,20 @@
           });
           if (!res.ok) throw new Error('API error');
           const data = await res.json();
-          // Use sandbox in development, init_point in production
-          const checkoutUrl = data.sandbox_init_point || data.init_point;
+          // Use sandbox_init_point when server is in sandbox mode, init_point for production
+          const checkoutUrl = data.sandbox
+            ? data.sandbox_init_point
+            : data.init_point;
+          if (data.sandbox) {
+            const proceed = confirm(
+              '⚠️ Modo sandbox activo.\n\n' +
+              'Para completar la compra en sandbox, necesitas usar una cuenta de comprador de prueba de Mercado Pago ' +
+              '(no tu cuenta real de Mercado Libre).\n\n' +
+              'Consulta la documentación de test en el issue de Paperclip para obtener credenciales de prueba.\n\n' +
+              '¿Continuar al checkout sandbox?'
+            );
+            if (!proceed) { btn.disabled = false; btn.textContent = originalText; return; }
+          }
           window.location.href = checkoutUrl;
         } catch {
           alert('Error al crear el pago. Intenta de nuevo.');
