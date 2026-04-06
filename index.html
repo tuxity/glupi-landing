@@ -20,7 +20,7 @@
         <li><a href="#como-funciona">Cómo funciona</a></li>
         <li><a href="#fases">Fases</a></li>
         <li><a href="#precios">Planes</a></li>
-        <li><a href="#registro" class="btn btn--primary btn--sm">Acceso anticipado</a></li>
+        <li><a href="#precios" class="btn btn--primary btn--sm">Comenzar</a></li>
       </ul>
       <button class="nav__toggle" aria-label="Menú" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -36,7 +36,7 @@
         <h1 class="hero__title">Tu aliado para cualquier tratamiento <em>GLP-1</em></h1>
         <p class="hero__subtitle">Semaglutida (Ozempic, Wegovy), tirzepatida (Mounjaro), liraglutida (Saxenda) — no importa cuál uses. 12 meses de acompañamiento vía WhatsApp: manejo de náusea, preservación muscular, y protocolo de mantenimiento para cuando dejes el medicamento.</p>
         <div class="hero__cta">
-          <a href="#registro" class="btn btn--primary btn--lg">Registrar mi WhatsApp</a>
+          <a href="#precios" class="btn btn--primary btn--lg">Elegir mi plan</a>
           <a href="#como-funciona" class="btn btn--outline btn--lg">Cómo funciona</a>
         </div>
         <p class="hero__trust">Contenido basado en evidencia clínica publicada. No es un servicio médico.</p>
@@ -235,7 +235,7 @@
   <section class="section section--light" id="precios">
     <div class="container">
       <h2 class="section__title">Inviertes miles en tu medicamento. Invierte en que funcione.</h2>
-      <p class="section__subtitle">Lanzamos pronto. Regístrate hoy y obtén precio de fundador.</p>
+      <p class="section__subtitle">Pago único vía Mercado Pago. Empiezas de inmediato por WhatsApp.</p>
 
       <!-- Package cards -->
       <div class="pricing">
@@ -245,16 +245,16 @@
           <div class="price-card__price">$1,499 <span>MXN</span></div>
           <p class="price-card__period">pago único · 6 meses</p>
           <p class="price-card__desc">Lo esencial para empezar bien tu tratamiento GLP-1.</p>
-          <a href="#registro" class="btn btn--outline-dark btn--block">Reservar mi lugar</a>
+          <button class="btn btn--outline-dark btn--block js-checkout" data-title="Glupi — Plan Arranque (6 meses)" data-price="1499">Comprar Arranque</button>
         </div>
         <div class="price-card price-card--featured">
-          <div class="price-card__badge">Precio de fundador</div>
+          <div class="price-card__badge">Más popular</div>
           <div class="price-card__tier">Más popular</div>
           <h3 class="price-card__name">Mantenimiento</h3>
           <div class="price-card__price">$2,499 <span>MXN</span></div>
           <p class="price-card__period">pago único · 12 meses</p>
           <p class="price-card__desc">Acompañamiento completo con protocolo anti-rebote. Todo vía WhatsApp.</p>
-          <a href="#registro" class="btn btn--primary btn--block">Reservar mi lugar</a>
+          <button class="btn btn--primary btn--block js-checkout" data-title="Glupi — Plan Mantenimiento (12 meses)" data-price="2499">Comprar Mantenimiento</button>
         </div>
         <div class="price-card price-card--premium">
           <div class="price-card__tier">Personalizado</div>
@@ -262,7 +262,7 @@
           <div class="price-card__price">$4,999 <span>MXN</span></div>
           <p class="price-card__period">pago único · 12 meses</p>
           <p class="price-card__desc">Todo lo anterior + nutrióloga certificada con plan 100% personalizado.</p>
-          <a href="#registro" class="btn btn--outline-dark btn--block">Reservar mi lugar</a>
+          <button class="btn btn--outline-dark btn--block js-checkout" data-title="Glupi — Plan Premium (12 meses)" data-price="4999">Comprar Premium</button>
         </div>
       </div>
 
@@ -415,53 +415,17 @@
     </div>
   </section>
 
-  <!-- WhatsApp Registration CTA -->
+  <!-- Purchase CTA -->
   <section class="section section--amber" id="registro">
     <div class="cta-banner">
-      <h2 class="cta-banner__title">Sé de los primeros en recibir acceso</h2>
-      <p class="cta-banner__sub">Registra tu WhatsApp y te avisamos cuando el programa esté listo. Sin spam, solo una invitación.</p>
-      <form id="waitlist-form" class="waitlist-form" autocomplete="off">
-        <div class="waitlist-form__row">
-          <select id="country-code" class="waitlist-form__country" aria-label="Código de país">
-            <option value="+52" data-digits="10" selected>🇲🇽 +52</option>
-            <option value="+1" data-digits="10">🇺🇸 +1</option>
-            <option value="+1" data-digits="10">🇨🇦 +1</option>
-            <option value="+54" data-digits="10">🇦🇷 +54</option>
-            <option value="+56" data-digits="9">🇨🇱 +56</option>
-            <option value="+57" data-digits="10">🇨🇴 +57</option>
-            <option value="+506" data-digits="8">🇨🇷 +506</option>
-            <option value="+593" data-digits="9">🇪🇨 +593</option>
-            <option value="+503" data-digits="8">🇸🇻 +503</option>
-            <option value="+34" data-digits="9">🇪🇸 +34</option>
-            <option value="+502" data-digits="8">🇬🇹 +502</option>
-            <option value="+504" data-digits="8">🇭🇳 +504</option>
-            <option value="+505" data-digits="8">🇳🇮 +505</option>
-            <option value="+507" data-digits="8">🇵🇦 +507</option>
-            <option value="+51" data-digits="9">🇵🇪 +51</option>
-            <option value="+1" data-digits="10">🇵🇷 +1</option>
-            <option value="+1" data-digits="10">🇩🇴 +1</option>
-            <option value="+598" data-digits="8">🇺🇾 +598</option>
-            <option value="+58" data-digits="10">🇻🇪 +58</option>
-          </select>
-          <input
-            type="tel"
-            id="waitlist-phone"
-            class="waitlist-form__input"
-            placeholder="10 dígitos (ej. 5512345678)"
-            maxlength="10"
-            inputmode="numeric"
-            required
-          >
-          <button type="submit" class="btn btn--lg waitlist-form__btn">Registrarme</button>
-        </div>
-        <p class="waitlist-form__hint">Tu número solo se usará para enviarte la invitación al programa.</p>
-      </form>
-      <div id="waitlist-success" class="waitlist-success" hidden>
-        <p class="waitlist-success__msg">Tu WhatsApp ha sido registrado. Te avisaremos cuando el programa esté listo.</p>
+      <h2 class="cta-banner__title">Empieza hoy tu programa de acompañamiento</h2>
+      <p class="cta-banner__sub">Elige tu plan, paga con Mercado Pago, y recibe tu código de acceso para comenzar vía WhatsApp.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem">
+        <button class="btn btn--outline btn--lg js-checkout" data-title="Glupi — Plan Arranque (6 meses)" data-price="1499">Arranque · $1,499</button>
+        <button class="btn btn--primary btn--lg js-checkout" data-title="Glupi — Plan Mantenimiento (12 meses)" data-price="2499">Mantenimiento · $2,499</button>
+        <button class="btn btn--outline btn--lg js-checkout" data-title="Glupi — Plan Premium (12 meses)" data-price="4999">Premium · $4,999</button>
       </div>
-      <div id="waitlist-error" class="waitlist-error" hidden>
-        <p class="waitlist-error__msg">Hubo un error. Intenta de nuevo.</p>
-      </div>
+      <p style="margin-top:1rem;opacity:.7;font-size:.875rem">Pago único. Sin suscripciones ni cargos recurrentes.</p>
     </div>
   </section>
 
@@ -477,7 +441,7 @@
           <a href="#como-funciona">Cómo funciona</a>
           <a href="#fases">Fases</a>
           <a href="#precios">Planes</a>
-          <a href="#registro">Acceso anticipado</a>
+          <a href="#precios">Comenzar</a>
         </div>
       </div>
       <div class="footer__legal">
@@ -497,56 +461,35 @@
       links.classList.toggle('nav__links--open');
     });
 
-    // Country code picker — update placeholder on change
-    const countrySelect = document.getElementById('country-code');
-    const phoneInput = document.getElementById('waitlist-phone');
-    function updatePhonePlaceholder() {
-      const opt = countrySelect.selectedOptions[0];
-      const digits = opt.dataset.digits || '10';
-      phoneInput.maxLength = digits;
-      phoneInput.placeholder = digits + ' dígitos (ej. ' + '5'.repeat(Math.min(4, digits)) + '1'.repeat(Math.max(0, digits - 4)) + ')';
-    }
-    countrySelect.addEventListener('change', updatePhonePlaceholder);
+    // Mercado Pago checkout
+    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? 'http://localhost:8787'
+      : 'https://glupi.rebebe.workers.dev';
 
-    // Waitlist form
-    const waitlistForm = document.getElementById('waitlist-form');
-    const waitlistSuccess = document.getElementById('waitlist-success');
-    const waitlistError = document.getElementById('waitlist-error');
-    waitlistForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const phone = phoneInput.value.replace(/\D/g, '');
-      const expectedDigits = parseInt(countrySelect.selectedOptions[0].dataset.digits || '10', 10);
-      if (phone.length !== expectedDigits) {
-        phoneInput.setCustomValidity('Ingresa ' + expectedDigits + ' dígitos');
-        phoneInput.reportValidity();
-        return;
-      }
-      phoneInput.setCustomValidity('');
-      const countryCode = countrySelect.value;
-      const btn = waitlistForm.querySelector('button');
-      btn.disabled = true;
-      btn.textContent = 'Registrando...';
-      waitlistError.hidden = true;
-      try {
-        const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-          ? 'http://localhost:8787'
-          : 'https://glupi.rebebe.workers.dev';
-        const res = await fetch(API_URL + '/api/waitlist', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ phone, countryCode }),
-        });
-        if (res.ok) {
-          waitlistForm.hidden = true;
-          waitlistSuccess.hidden = false;
-        } else {
-          throw new Error('API error');
+    document.querySelectorAll('.js-checkout').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const title = btn.dataset.title;
+        const price = parseInt(btn.dataset.price, 10);
+        const originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Procesando...';
+        try {
+          const res = await fetch(API_URL + '/api/checkout/create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title: title, unit_price: price, quantity: 1 }),
+          });
+          if (!res.ok) throw new Error('API error');
+          const data = await res.json();
+          // Use sandbox in development, init_point in production
+          const checkoutUrl = data.sandbox_init_point || data.init_point;
+          window.location.href = checkoutUrl;
+        } catch {
+          alert('Error al crear el pago. Intenta de nuevo.');
+          btn.disabled = false;
+          btn.textContent = originalText;
         }
-      } catch {
-        waitlistError.hidden = false;
-        btn.disabled = false;
-        btn.textContent = 'Registrarme';
-      }
+      });
     });
 
     // Smooth scroll
@@ -556,7 +499,6 @@
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Close mobile nav if open
           links.classList.remove('nav__links--open');
           toggle.setAttribute('aria-expanded', 'false');
         }
