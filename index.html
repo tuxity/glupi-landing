@@ -529,8 +529,10 @@
 
   <!-- Phone capture modal -->
   <div id="phoneModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;padding:1rem;">
-    <div style="background:#fff;border-radius:16px;padding:2rem;max-width:400px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.15);">
+    <div style="background:#fff;border-radius:16px;padding:2rem;max-width:400px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.15);position:relative;overflow:hidden;">
       <h3 style="margin:0 0 .25rem;font-size:1.25rem;" id="modalTitle"></h3>
+      <!-- Step 1: Phone input -->
+      <div id="phoneStep1" style="transition:opacity .2s ease,transform .2s ease;">
       <p style="color:#666;font-size:.9rem;margin-bottom:1.25rem;line-height:1.5;">Danos tu WhatsApp y empieza al instante después de pagar.</p>
       <form id="phoneForm">
         <label for="modalCountryCode" class="sr-only">Código de país</label>
@@ -668,13 +670,21 @@
             <option value="64">&#127475;&#127487; +64</option>
             <option value="675">&#127477;&#127468; +675</option>
           </select>
-          <input type="tel" id="modalPhone" placeholder="55 1234 5678" aria-label="Número de WhatsApp" required
+          <input type="tel" id="modalPhone" inputmode="numeric" placeholder="55 1234 5678" aria-label="Número de WhatsApp" required
             style="flex:1;padding:.75rem 1rem;border:2px solid #e5e7eb;border-radius:8px;font-size:1rem;min-width:0;">
         </div>
         <p id="phoneError" style="color:#dc2626;font-size:.85rem;min-height:1.25rem;margin:.5rem 0;"></p>
-        <button type="submit" id="phoneSubmitBtn" class="btn btn--primary" style="width:100%;margin-top:.25rem;">Continuar al pago</button>
+        <button type="submit" id="phoneSubmitBtn" class="btn btn--primary" style="width:100%;margin-top:.25rem;">Continuar</button>
         <button type="button" id="phoneCancelBtn" style="margin-top:.75rem;background:none;border:none;color:#888;cursor:pointer;font-size:.9rem;">Cancelar</button>
       </form>
+      </div>
+      <!-- Step 2: Confirmation -->
+      <div id="phoneStep2" style="display:none;opacity:0;transform:translateX(20px);transition:opacity .2s ease,transform .2s ease;">
+        <p style="color:#666;font-size:.9rem;margin-bottom:.75rem;line-height:1.5;">¿Es correcto? Este es el número donde recibirás a GLuPI.</p>
+        <p id="confirmPhone" style="font-size:1.5rem;font-weight:700;color:#2D3A4A;margin:.75rem 0 1.25rem;"></p>
+        <button type="button" id="confirmPayBtn" class="btn btn--primary" style="width:100%;">Sí, ir al pago</button>
+        <button type="button" id="changePhoneBtn" style="margin-top:.75rem;background:none;border:none;color:#10B981;cursor:pointer;font-size:.9rem;font-weight:500;">← Cambiar número</button>
+      </div>
     </div>
   </div>
 
@@ -703,6 +713,174 @@
     const modalPhone = document.getElementById('modalPhone');
     const phoneError = document.getElementById('phoneError');
     const phoneSubmitBtn = document.getElementById('phoneSubmitBtn');
+    const phoneStep1 = document.getElementById('phoneStep1');
+    const phoneStep2 = document.getElementById('phoneStep2');
+    const confirmPhone = document.getElementById('confirmPhone');
+    const confirmPayBtn = document.getElementById('confirmPayBtn');
+    const changePhoneBtn = document.getElementById('changePhoneBtn');
+    const modalCountryCode = document.getElementById('modalCountryCode');
+
+    // Per-country digit-length map and format patterns
+    const countryPhoneRules = {
+      '52':   { len: [10],    name: 'mexicanos',      fmt: [2, 4, 4] },
+      '1':    { len: [10],    name: 'estadounidenses', fmt: [3, 3, 4] },
+      '54':   { len: [10],    name: 'argentinos',     fmt: [2, 4, 4] },
+      '55':   { len: [10,11], name: 'brasileños',     fmt: [2, 4, 4] },
+      '56':   { len: [9],     name: 'chilenos',       fmt: [1, 4, 4] },
+      '57':   { len: [10],    name: 'colombianos',    fmt: [3, 3, 4] },
+      '51':   { len: [9],     name: 'peruanos',       fmt: [3, 3, 3] },
+      '593':  { len: [9],     name: 'ecuatorianos',   fmt: [2, 3, 4] },
+      '58':   { len: [10],    name: 'venezolanos',    fmt: [3, 3, 4] },
+      '598':  { len: [8],     name: 'uruguayos',      fmt: [4, 4] },
+      '595':  { len: [9],     name: 'paraguayos',     fmt: [3, 3, 3] },
+      '591':  { len: [8],     name: 'bolivianos',     fmt: [4, 4] },
+      '506':  { len: [8],     name: 'costarricenses', fmt: [4, 4] },
+      '502':  { len: [8],     name: 'guatemaltecos',  fmt: [4, 4] },
+      '503':  { len: [8],     name: 'salvadoreños',   fmt: [4, 4] },
+      '504':  { len: [8],     name: 'hondureños',     fmt: [4, 4] },
+      '505':  { len: [8],     name: 'nicaragüenses',  fmt: [4, 4] },
+      '507':  { len: [8],     name: 'panameños',      fmt: [4, 4] },
+      '34':   { len: [9],     name: 'españoles',      fmt: [3, 3, 3] },
+      '44':   { len: [10],    name: 'británicos',     fmt: [4, 3, 3] },
+      '49':   { len: [10,11], name: 'alemanes',       fmt: [3, 4, 4] },
+      '33':   { len: [9],     name: 'franceses',      fmt: [1, 2, 2, 2, 2] },
+      '39':   { len: [10],    name: 'italianos',      fmt: [3, 3, 4] },
+      '91':   { len: [10],    name: 'indios',         fmt: [5, 5] },
+    };
+
+    function getRulesForCountry(code) {
+      return countryPhoneRules[code] || null;
+    }
+
+    function formatPhone(digits, fmt) {
+      if (!fmt) return digits;
+      let result = '', pos = 0;
+      for (const group of fmt) {
+        if (pos >= digits.length) break;
+        if (pos > 0) result += ' ';
+        result += digits.slice(pos, pos + group);
+        pos += group;
+      }
+      if (pos < digits.length) {
+        result += ' ' + digits.slice(pos);
+      }
+      return result;
+    }
+
+    function stripLeadingZeros(digits) {
+      return digits.replace(/^0+/, '');
+    }
+
+    function validatePhone(code, digits) {
+      const rules = getRulesForCountry(code);
+      if (rules) {
+        if (!rules.len.includes(digits.length)) {
+          const expected = rules.len.join(' o ');
+          return `Los números ${rules.name} tienen ${expected} dígitos (tienes ${digits.length}).`;
+        }
+        return '';
+      }
+      // Fallback: 7-15 range
+      if (digits.length < 7 || digits.length > 15) {
+        return 'Por favor ingresa un número válido (7-15 dígitos).';
+      }
+      return '';
+    }
+
+    // Live formatting on input
+    modalPhone.addEventListener('input', () => {
+      const code = modalCountryCode.value;
+      const rules = getRulesForCountry(code);
+      const cursorPos = modalPhone.selectionStart;
+      const rawBefore = modalPhone.value;
+      let digits = stripLeadingZeros(modalPhone.value.replace(/\D/g, ''));
+
+      // Cap digits at max allowed length
+      const maxLen = rules ? Math.max(...rules.len) : 15;
+      if (digits.length > maxLen) digits = digits.slice(0, maxLen);
+
+      const formatted = rules ? formatPhone(digits, rules.fmt) : digits;
+      if (formatted !== rawBefore) {
+        modalPhone.value = formatted;
+        // Approximate cursor position
+        const diff = formatted.length - rawBefore.length;
+        modalPhone.setSelectionRange(cursorPos + diff, cursorPos + diff);
+      }
+      // Clear error on typing
+      phoneError.textContent = '';
+    });
+
+    // Re-format when country changes
+    modalCountryCode.addEventListener('change', () => {
+      const code = modalCountryCode.value;
+      const rules = getRulesForCountry(code);
+      const digits = stripLeadingZeros(modalPhone.value.replace(/\D/g, ''));
+      modalPhone.value = rules ? formatPhone(digits, rules.fmt) : digits;
+      // Update placeholder
+      if (rules) {
+        const sample = '1234567890123'.slice(0, rules.len[0]);
+        modalPhone.placeholder = formatPhone(sample, rules.fmt);
+      } else {
+        modalPhone.placeholder = '55 1234 5678';
+      }
+    });
+
+    // Handle paste: strip leading zeros
+    modalPhone.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const pasted = (e.clipboardData || window.clipboardData).getData('text');
+      let digits = stripLeadingZeros(pasted.replace(/\D/g, ''));
+      const code = modalCountryCode.value;
+      const rules = getRulesForCountry(code);
+      const maxLen = rules ? Math.max(...rules.len) : 15;
+      if (digits.length > maxLen) digits = digits.slice(0, maxLen);
+      modalPhone.value = rules ? formatPhone(digits, rules.fmt) : digits;
+      phoneError.textContent = '';
+    });
+
+    // Auto-detect country from browser language
+    (function autoDetectCountry() {
+      const lang = (navigator.language || '').toLowerCase();
+      const langToCode = {
+        'es-mx': '52', 'es-ar': '54', 'es-co': '57', 'es-cl': '56',
+        'es-pe': '51', 'es-ve': '58', 'es-ec': '593', 'es-uy': '598',
+        'es-py': '595', 'es-bo': '591', 'es-cr': '506', 'es-gt': '502',
+        'es-sv': '503', 'es-hn': '504', 'es-ni': '505', 'es-pa': '507',
+        'es-es': '34', 'pt-br': '55', 'en-us': '1', 'en-gb': '44',
+        'fr-fr': '33', 'de-de': '49', 'it-it': '39',
+      };
+      const match = langToCode[lang];
+      if (match && modalCountryCode.querySelector(`option[value="${match}"]`)) {
+        modalCountryCode.value = match;
+        modalCountryCode.dispatchEvent(new Event('change'));
+      }
+    })();
+
+    function showStep(step) {
+      if (step === 1) {
+        phoneStep2.style.opacity = '0';
+        phoneStep2.style.transform = 'translateX(20px)';
+        setTimeout(() => {
+          phoneStep2.style.display = 'none';
+          phoneStep1.style.display = '';
+          requestAnimationFrame(() => {
+            phoneStep1.style.opacity = '1';
+            phoneStep1.style.transform = 'translateX(0)';
+          });
+        }, 200);
+      } else {
+        phoneStep1.style.opacity = '0';
+        phoneStep1.style.transform = 'translateX(-20px)';
+        setTimeout(() => {
+          phoneStep1.style.display = 'none';
+          phoneStep2.style.display = '';
+          requestAnimationFrame(() => {
+            phoneStep2.style.opacity = '1';
+            phoneStep2.style.transform = 'translateX(0)';
+          });
+        }, 200);
+      }
+    }
 
     function openPhoneModal(title, price, btn) {
       pendingTitle = title;
@@ -713,7 +891,14 @@
       modalPhone.value = '';
       phoneError.textContent = '';
       phoneSubmitBtn.disabled = false;
-      phoneSubmitBtn.textContent = 'Continuar al pago';
+      phoneSubmitBtn.textContent = 'Continuar';
+      // Reset to step 1 without animation
+      phoneStep1.style.display = '';
+      phoneStep1.style.opacity = '1';
+      phoneStep1.style.transform = 'translateX(0)';
+      phoneStep2.style.display = 'none';
+      phoneStep2.style.opacity = '0';
+      phoneStep2.style.transform = 'translateX(20px)';
       phoneModal.style.display = 'flex';
       modalPhone.focus();
     }
@@ -731,18 +916,35 @@
       if (e.target === phoneModal) closePhoneModal();
     });
 
-    phoneForm.addEventListener('submit', async (e) => {
+    // Step 1 → Step 2: validate and show confirmation
+    phoneForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const countryCode = document.getElementById('modalCountryCode').value;
-      const phone = modalPhone.value.replace(/\D/g, '');
-      if (phone.length < 7 || phone.length > 15) {
-        phoneError.textContent = 'Por favor ingresa un número válido.';
+      const code = modalCountryCode.value;
+      const digits = stripLeadingZeros(modalPhone.value.replace(/\D/g, ''));
+      const error = validatePhone(code, digits);
+      if (error) {
+        phoneError.textContent = error;
         return;
       }
-      const fullPhone = countryCode + phone;
-      phoneSubmitBtn.disabled = true;
-      phoneSubmitBtn.textContent = 'Procesando...';
-      phoneError.textContent = '';
+      const rules = getRulesForCountry(code);
+      const formatted = rules ? formatPhone(digits, rules.fmt) : digits;
+      confirmPhone.textContent = '+' + code + ' ' + formatted;
+      showStep(2);
+    });
+
+    // Step 2 → back to Step 1
+    changePhoneBtn.addEventListener('click', () => {
+      showStep(1);
+      modalPhone.focus();
+    });
+
+    // Step 2 → proceed to payment
+    confirmPayBtn.addEventListener('click', async () => {
+      const code = modalCountryCode.value;
+      const digits = stripLeadingZeros(modalPhone.value.replace(/\D/g, ''));
+      const fullPhone = code + digits;
+      confirmPayBtn.disabled = true;
+      confirmPayBtn.textContent = 'Procesando...';
       try {
         const res = await fetch(API_URL + '/api/checkout/create', {
           method: 'POST',
@@ -763,9 +965,10 @@
         }
         window.location.href = checkoutUrl;
       } catch {
+        confirmPayBtn.disabled = false;
+        confirmPayBtn.textContent = 'Sí, ir al pago';
+        showStep(1);
         phoneError.textContent = 'Error al crear el pago. Intenta de nuevo.';
-        phoneSubmitBtn.disabled = false;
-        phoneSubmitBtn.textContent = 'Continuar al pago';
       }
     });
 
