@@ -545,7 +545,7 @@ summary:focus-visible,
   transform: scale(1.04) translateY(-4px);
 }
 .price-card--premium {
-  border-color: var(--color-navy);
+  border-color: rgba(15, 27, 45, 0.28);
 }
 .price-card__badge {
   position: absolute;
