@@ -1119,3 +1119,19 @@ details[open] .faq__question::after {
   .cta-banner { padding: 3rem 1rem; }
   .cta-banner__title { font-size: 1.4rem; }
 }
+
+/* ===== Phone modal — responsive ===== */
+@media (max-width: 480px) {
+  #phoneForm > div {
+    flex-wrap: wrap;
+  }
+  #modalCountryCode {
+    min-width: 0 !important;
+    width: 100%;
+    font-size: 0.9rem !important;
+  }
+  #modalPhone {
+    flex: 1 1 100% !important;
+    font-size: 0.9rem !important;
+  }
+}

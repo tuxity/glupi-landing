@@ -550,7 +550,7 @@
       <!-- Step 1: Phone input -->
       <div id="phoneStep1" style="transition:opacity .2s ease,transform .2s ease;">
       <p style="color:#666;font-size:.9rem;margin-bottom:1.25rem;line-height:1.5;">Danos tu WhatsApp y empieza al instante después de pagar.</p>
-      <form id="phoneForm">
+      <form id="phoneForm" novalidate>
         <label for="modalCountryCode" class="sr-only">Código de país</label>
         <label for="modalPhone" class="sr-only">Número de WhatsApp</label>
         <div style="display:flex;gap:.5rem;align-items:stretch;">
@@ -863,7 +863,7 @@
         'es-pe': '51', 'es-ve': '58', 'es-ec': '593', 'es-uy': '598',
         'es-py': '595', 'es-bo': '591', 'es-cr': '506', 'es-gt': '502',
         'es-sv': '503', 'es-hn': '504', 'es-ni': '505', 'es-pa': '507',
-        'es-es': '34', 'pt-br': '55', 'en-us': '1', 'en-gb': '44',
+        'es-es': '34', 'es': '52', 'pt-br': '55', 'en-gb': '44',
         'fr-fr': '33', 'de-de': '49', 'it-it': '39',
       };
       const match = langToCode[lang];
