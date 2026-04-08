@@ -610,6 +610,59 @@ summary:focus-visible,
   width: 100%;
 }
 
+/* ===== Early Adopter Promo ===== */
+.ea-promo-banner {
+  background: linear-gradient(135deg, var(--color-amber) 0%, var(--color-coral) 100%);
+  color: var(--color-white);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.ea-promo-banner__icon {
+  font-size: 1.3rem;
+}
+.ea-promo-banner__text {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.ea-promo-banner__sub {
+  font-size: 0.85rem;
+  opacity: 0.88;
+}
+.price-card__original {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.price-card__ea-tag {
+  display: inline-block;
+  background: var(--color-amber);
+  color: var(--color-white);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.6rem;
+  border-radius: 20px;
+  margin-bottom: 0.35rem;
+}
+.price-card--featured .price-card__ea-tag {
+  background: var(--color-white);
+  color: var(--color-amber);
+}
+.price-card--premium .price-card__ea-tag {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
 /* ===== Feature Comparison Table ===== */
 .compare {
   background: var(--color-white);
