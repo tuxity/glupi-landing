@@ -1121,17 +1121,9 @@ details[open] .faq__question::after {
 }
 
 /* ===== Phone modal — responsive ===== */
-@media (max-width: 480px) {
-  #phoneForm > div {
-    flex-wrap: wrap;
-  }
-  #modalCountryCode {
-    min-width: 0 !important;
-    width: 100%;
-    font-size: 0.9rem !important;
-  }
-  #modalPhone {
-    flex: 1 1 100% !important;
-    font-size: 0.9rem !important;
-  }
+#modalCountryCode { flex-shrink: 0; }
+@media (max-width: 400px) {
+  #phoneForm > div { flex-wrap: wrap; }
+  #modalCountryCode { width: 100%; }
+  #modalPhone { flex: 1 1 100%; }
 }
