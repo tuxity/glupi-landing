@@ -1120,10 +1120,3 @@ details[open] .faq__question::after {
   .cta-banner__title { font-size: 1.4rem; }
 }
 
-/* ===== Phone modal — responsive ===== */
-#modalCountryCode { flex-shrink: 0; }
-@media (max-width: 400px) {
-  #phoneForm > div { flex-wrap: wrap; }
-  #modalCountryCode { width: 100%; }
-  #modalPhone { flex: 1 1 100%; }
-}
